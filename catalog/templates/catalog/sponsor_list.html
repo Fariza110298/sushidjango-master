@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+<div style="width: 785px;background: white;padding: 5px;padding-right: 5px;  border: outset 5px BurlyWood;
+" >
+   <div class="SpisokMenu" style="color:MidnightBlue; background-color:#ccc; width:300px">
+
+</div>
+    <h1 align="center">Демеушілер тізімі</h1>
+
+    {% if sponsor_list %}
+    <ul>
+
+      {% for sponsor in sponsor_list %}
+      <li>
+          <a style="color:#000000" href="{{ sponsor.get_absolute_url }}">{{sponsor.sponsor_name}}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+
+    {% endif %}
+{% endblock %}

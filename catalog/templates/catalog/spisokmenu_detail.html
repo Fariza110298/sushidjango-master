@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+{%load static%}
+{% block content %}
+ <div style="width: 785px;background: white;padding: 5px;padding-right: 5px;  border: outset 5px BurlyWood;
+" >
+   <div class="SpisokMenu" style="color:MidnightBlue; background-color:#ccc; width:300px">
+
+</div>
+   <h1 align="center" ><strong>Сушидің аты: {{ spisokmenu.sushiname }}</strong></h1>
+
+  <p><strong>Демеушілер:</strong> <a style="color:#191970" href="{% url 'sponsor-detail' spisokmenu.sponsor.pk %}">{{ spisokmenu.sponsor }}</a></p><!-- sponsor detail link not yet defined -->
+  <p><strong>Суши құрамы: </strong> {{ spisokmenu.resept }}</p>
+  <p><strong>Суши бағасы:</strong> {{ spisokmenu.sushiprice }}</p>
+
+
+  <a style="margin-left:20px;margin-top:20px">
+
+<h2 align="center" style="color:red; font-size: 30px">Жеңілдіктер</h2>
+
+<img src="{%static "images/2525.jpg" width="50" height="5" style="padding:4px; padding-right:5px" %}"/>
+    <li > Тапсырыс бойынша</li>
+    <li> 3000 тг-ден жоғары тапсырыстағы сушиға + "Сяке маки" сыйлыққа.<img src="{%static "images/111.jpg" width="50" height="5" style="padding:4px; padding-right:5px" %}"/></li>
+
+    <li >5000 тг-ден жоғары тапсырыстағы сушиға + "Спайс ролл" сыйлыққа.<img src="{%static "images/menu_img2.png" width="50" height="5" style="padding:4px; padding-right:5px" %}"/></li>
+
+    <li> 7000 тг-ден жоғары тапсырыстағы сушиға +  "Филадельфия маки" сыйлыққа.<img src="{%static "images/12.jpg" width="50" height="5" style="padding:4px; padding-right:5px" %}"/></li>
+
+   <li>2500 тг-ден жоғары тапсырыстағы сушиға + 1 литр кола сусыны сыйлыққы <img src="{%static "images/original.jpg" width="50" height="5" style="padding:4px; padding-right:5px" %}"/></li>
+
+  </div>
+{% endblock %}

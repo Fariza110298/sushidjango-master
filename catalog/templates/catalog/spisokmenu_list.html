@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+{%load static%}
+{% block content %}
+<div style="width: 785px;background: white;padding: 5px;padding-right: 5px; border: outset 5px BurlyWood;
+" >
+   <div class="SpisokMenu" style="color:MidnightBlue; background-color:#ccc; width:300px">
+
+</div>
+    <h1 align="center">Cуши тізімдері</h1>
+
+    {% if spisokmenu_list %}
+    <ul>
+
+      {% for spisokmenu in spisokmenu_list %}
+
+      <li>
+        <a style="font-size:20px; color:#000000" href="{{ spisokmenu.get_absolute_url }}">{{ spisokmenu.sushiname }}🍣 <img src="{%static "images/CFS4Dmxu3jk1.jpg" width="50" height="5" style="padding:4px; padding-right:5px" %}"/> </a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      
+    {% endif %}       
+{% endblock %}

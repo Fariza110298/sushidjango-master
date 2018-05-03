@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  {% block title %}<title>Local Library</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <!-- Добавление дополнительного статического CSS файла -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+  <nav class='green'>
+    <div class="nav-wrapper">
+      <ul class="right hide-on-med-and-down">
+        {% if user.username %}
+        <li>Hello,{{user.username}} </li>
+        {% endif %}
+
+
+      </ul>
+    </div>
+  </nav>
+<body style="color:DarkRed; background-color:#FFFACD">
+  <div lass="col-xs-12 col-sm-12 col-md-8 col-lg-9">
+		<div class="row">
+		<div id="phone" class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-md-push-8 col-lg-push-9">
+
+			<div class="dropdown" style="width: 200px;background: #ccc;padding: 5px;padding-right: 20px; border: outset 5px BurlyWood;
+    float: left;" >
+				<ul>                   <a  class="fa fa-share"></a><b style="font-size:18px">Байланыс📱</b></span><div></div></ul>
+                <span><i class="fa fa-phone"></i>8 (727) 354 58 40 </span>
+									<span><i class="fa fa-mobile"></i>8(747)-586-08 22</span>
+									<span><i class="fa fa-whatsapp"></i>8(747)-586-08 22</span>
+									<span><i class="fa fa-whatsapp"></i>8(775)-232 64 83</span>
+																	</div>
+            <div class="dropdown" style="width: 200px;background: #ccc;padding: 5px;padding-right: 20px; border: outset 5px BurlyWood;
+    float: left;" >
+				<ul>                   <a  class="fa fa-share"></a><b style="font-size:18px">🔥 Жеңілдіктер📢 </b></span><div></div></ul>
+                <span><p class="fa fa-phone"></p>3000 теңге + "Сяке маки"  </span>
+									<span> <p class="fa fa-whatsapp"> 5000 теңге + "Спайс ролл</p></span>
+									<span><p class="fa fa-whatsapp"></p>7000 теңге + "Филадельфия маки"</span>
+									<span><p class="fa fa-whatsapp"></p>2 Сяке-маки +1л кола</span>
+                <span><a  href="https://youtu.be/FbHzYxi2YaA" style="color:#FF0000">>>>акция видио<<<</a></span>
+
+																	</div>
+            <div class="dropdown" style="width: 200px;background: #ccc;padding: 5px;padding-right: 20px; border: outset 5px BurlyWood;
+    float: left;" >
+				<ul>                   <a  class="fa fa-share"></a><b style="font-size:18px">📜 Жаңалықтар</b></span><div></div></ul>
+                <span><p class="fa fa-phone"></p>📌"«Қазақстандағы қақтығыстар жоқ»: Назарбаев Трамппен әңгімелесу туралы әңгімелеп берді</span>
+                                <span><p class="fa fa-mobile"></p>📌Головкин «GGG әсерін» бәсекелестердің қорқынышын тудырады</span>
+									<span><p class="fa fa-whatsapp"></p>📌Қарағандыда Қазақстан халқының бірлігі күні атап өтілді</span>
+									<span><p class="fa fa-whatsapp"></p>📌Маңғыстауда алғашқы күн электр станциясы іске қосылды</span>
+                <span><a href="https://www.nur.kz/	" style="color:red" class="fa fa-whatsapp">📌Тағы>>></a></span>
+            </div>
+
+		</div>
+
+		<div id="links" class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-md-pull-4 col-lg-pull-3">
+			<div class="hidden-md">
+			<ul><a style=" font-size:18px;color:#8B0000" href="https://2gis.kz/almaty" title="🚗 Карта доставки 🚗">🚗Жеткізу картасы🚗</a>
+												</ul>
+
+		</div>
+
+<div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-2">
+      {% block sidebar %}
+
+               <table width="780" height="49" border="0" cellpadding="0" cellspacing="0" class="sidebar-nav">
+    <tr>
+      <ul class="sidebar-nav">
+
+          <li><strong> <a style="background:#8B0000; font-size:18px;color:#FFFACD" href="{% url 'index' %}">Үй    </a></strong></li>
+          <li><strong> <a style="background:#8B0000; font-size:18px;color:#FFFACD" href="{% url 'spisokmenus' %}"> Суши Меню</a></strong></li>
+          <li><strong> <a style="background:#8B0000; font-size:18px;color:#FFFACD" href="{% url 'sponsors' %}">Демеушілер</a> </strong></li>
+     	  <li><strong> <a style="background:#8B0000; font-size:18px;color:#FFFACD" href="akcia.html">Суреттер</a></strong></li>
+
+
+      </ul>
+    </tr>
+  </table>
+
+
+     {% endblock %}
+      </div>
+      <div class="col-sm-10 ">
+      {% block content %}{% endblock %}
+      {% block pagination %}
+  {% if is_paginated %}
+      <div class="pagination">
+          <span class="page-links">
+              {% if page_obj.has_previous %}
+                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+              {% endif %}
+              <span class="page-current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+              {% if page_obj.has_next %}
+                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+              {% endif %}
+          </span>
+
+      </div>
+          <div class="top-bl">
+              <div class="container">
+                  <div class="card">
+                      <b style="color:white;">rjhflf</b>
+                  </div>
+              </div>
+          </div>
+  {% endif %}
+{% endblock %}
+
+</body>
+</html>
